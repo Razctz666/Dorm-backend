@@ -1,0 +1,964 @@
+<div class="row" style="width: 100.81%;">
+    <aside class="col-lg-3" style="width: 335px;"> 
+        <admin-hostel-sidebar></admin-hostel-sidebar>
+    </aside>
+    <main class="col-lg-9" style="min-height: 100vh;">
+
+            <div class="container mt-4">
+
+                <!-- Search bar -->
+                <form class="form-inline my-3" [formGroup]="rNoForSearch">
+                    <div class="input-group">
+                    <input type="number" id="rNo" name="rNo" formControlName="rNo" class="form-control bg-light" placeholder="Search Room No" aria-label="Search" aria-describedby="basic-addon2" required>
+                    <div class="input-group-append">
+                        <button (click)="searchRoomNo()" class="btn btn-primary" type="button">
+                            <i class="fas fa-search fa-sm"></i>
+                        </button>
+                    </div>
+                    </div>
+                </form>
+
+                <span *ngIf="searchIsDone == true">
+                    <h1 style="color: white;">Your Search Result</h1>
+                    <div class="row">
+                        <div *ngFor="let student of searchRooms" class="col-md-2">
+                            <div class="card card-profile">
+                            <div class="card-avatar">
+                                    <span class="fa-stack">
+                                        <strong class="fa-stack-2x">
+                                        {{student.roomNo}}
+                                        </strong>
+                                    </span>
+                            </div>
+                            <div class="table">
+                                    <!-- <h4 class="card-caption m-0">Room No: 2</h4> -->
+                                    <div class="ftr" style="border-top: none;">
+                                        <!-- <a><i class="fas fa-arrow-alt-circle-right"></i></a> -->
+                                        <button type="button" class="btn p-0" data-toggle="modal" [attr.data-target]="'#viewStudent'+ student.personNo">
+                                            <i class="fas fa-arrow-alt-circle-right"></i>
+                                        </button>
+                                    </div>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div *ngIf="!this.searchRooms.length" class="alert alert-info mx-2" role="alert" style="width: 400px;">
+                        {{searchmsg}}
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <button class="btn btn-primary" (click)="searchIsDone = false">View All Students</button>
+                </span>
+
+                <span *ngIf="searchIsDone == false">
+                    <div class="col-lg-12 p-0 mt-5">
+                        <div class="div-box">
+                            <h3 class="room-title"><strong>Boys Rooms</strong></h3>
+                        </div>
+                    </div>
+
+                   <hr style="color: white;width: 50%;margin-left:25% !important; margin-right:25% !important;" />
+                    <h2 class="text-center" style="color: white;">Room 1</h2>
+                    <hr style="color: white;width: 50%;margin-left:25% !important; margin-right:25% !important;" />
+                    <div class="row mx-5"> 
+                        <div *ngFor="let student of broneRoomsMaleStudents" class="col-md-2">
+                            <div class="card card-profile">
+                            <div class="card-avatar">
+                                    <span class="fa-stack">
+                                        <strong class="fa-stack-2x">
+                                        {{student.roomNo}}
+                                        </strong>
+                                    </span>
+                            </div>
+                            <div class="table">
+                                    <!-- <h4 class="card-caption m-0">Room No: 2</h4> -->
+                                    <div class="ftr" style="border-top: none;">
+                                        <!-- <a><i class="fas fa-arrow-alt-circle-right"></i></a> -->
+                                        <button type="button" class="btn p-0" data-toggle="modal" [attr.data-target]="'#viewStudent'+ student.personNo">
+                                            <i class="fas fa-arrow-alt-circle-right"></i>
+                                        </button>
+                                    </div>
+                            </div>
+                            </div>
+                        </div>
+
+                        <div *ngIf="!this.broneRoomsMaleStudents.length" class="alert alert-info mx-2" role="alert" style="width: 400px;">
+                            {{msg}}
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    </div>
+                        
+                    <hr style="color: white;width: 50%;margin-left:25% !important; margin-right:25% !important;" />
+                    <h2 class="text-center" style="color: white;">Room 2</h2>
+                    <hr style="color: white;width: 50%;margin-left:25% !important; margin-right:25% !important;" />
+                    <div class="row mx-5"> 
+                        <div *ngFor="let student of brtwoRoomsMaleStudents" class="col-md-2">
+                            <div class="card card-profile">
+                            <div class="card-avatar">
+                                    <span class="fa-stack">
+                                        <strong class="fa-stack-2x">
+                                        {{student.roomNo}}
+                                        </strong>
+                                    </span>
+                            </div>
+                            <div class="table">
+                                    <!-- <h4 class="card-caption m-0">Room No: 2</h4> -->
+                                    <div class="ftr" style="border-top: none;">
+                                        <!-- <a><i class="fas fa-arrow-alt-circle-right"></i></a> -->
+                                        <button type="button" class="btn p-0" data-toggle="modal" [attr.data-target]="'#viewStudent'+ student.personNo">
+                                            <i class="fas fa-arrow-alt-circle-right"></i>
+                                        </button>
+                                    </div>
+                            </div>
+                            </div>
+                        </div>
+                        <div *ngIf="!this.brtwoRoomsMaleStudents.length" class="alert alert-info mx-2" role="alert" style="width: 400px;">
+                            {{msg}}
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    
+
+                    <hr style="color: white;width: 50%;margin-left:25% !important; margin-right:25% !important;" />
+                    <h2 class="text-center" style="color: white;">Room 3</h2>
+                    <hr style="color: white;width: 50%;margin-left:25% !important; margin-right:25% !important;" />
+                    <div class="row mx-5"> 
+                        <div *ngFor="let student of brtreeRoomsMaleStudents" class="col-md-2">
+                            <div class="card card-profile">
+                            <div class="card-avatar">
+                                    <span class="fa-stack">
+                                        <strong class="fa-stack-2x">
+                                        {{student.roomNo}}
+                                        </strong>
+                                    </span>
+                            </div>
+                            <div class="table">
+                                    <!-- <h4 class="card-caption m-0">Room No: 2</h4> -->
+                                    <div class="ftr" style="border-top: none;">
+                                        <!-- <a><i class="fas fa-arrow-alt-circle-right"></i></a> -->
+                                        <button type="button" class="btn p-0" data-toggle="modal" [attr.data-target]="'#viewStudent'+ student.personNo">
+                                            <i class="fas fa-arrow-alt-circle-right"></i>
+                                        </button>
+                                    </div>
+                            </div>
+                            </div>
+                        </div>
+                        <div *ngIf="!this.brtreeRoomsMaleStudents.length" class="alert alert-info mx-2" role="alert" style="width: 400px;">
+                            {{msg}}
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <hr style="color: white;width: 50%;margin-left:25% !important; margin-right:25% !important;" />
+                    <h2 class="text-center" style="color: white;">Room 4</h2>
+                    <hr style="color: white;width: 50%;margin-left:25% !important; margin-right:25% !important;" />
+                    <div class="row mx-5"> 
+                        <div *ngFor="let student of brfourRoomsMaleStudents" class="col-md-2">
+                            <div class="card card-profile">
+                            <div class="card-avatar">
+                                    <span class="fa-stack">
+                                        <strong class="fa-stack-2x">
+                                        {{student.roomNo}}
+                                        </strong>
+                                    </span>
+                            </div>
+                            <div class="table">
+                                    <!-- <h4 class="card-caption m-0">Room No: 2</h4> -->
+                                    <div class="ftr" style="border-top: none;">
+                                        <!-- <a><i class="fas fa-arrow-alt-circle-right"></i></a> -->
+                                        <button type="button" class="btn p-0" data-toggle="modal" [attr.data-target]="'#viewStudent'+ student.personNo">
+                                            <i class="fas fa-arrow-alt-circle-right"></i>
+                                        </button>
+                                    </div>
+                            </div>
+                            </div>
+                        </div>
+                        <div *ngIf="!this.brfourRoomsMaleStudents.length" class="alert alert-info mx-2" role="alert" style="width: 400px;">
+                            {{msg}}
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <hr style="color: white;width: 50%;margin-left:25% !important; margin-right:25% !important;" />
+                    <h2 class="text-center" style="color: white;">Room 5</h2>
+                    <hr style="color: white;width: 50%;margin-left:25% !important; margin-right:25% !important;" />
+                    <div class="row mx-5"> 
+                        <div *ngFor="let student of brfiveRoomsMaleStudents" class="col-md-2">
+                            <div class="card card-profile">
+                            <div class="card-avatar">
+                                    <span class="fa-stack">
+                                        <strong class="fa-stack-2x">
+                                        {{student.roomNo}}
+                                        </strong>
+                                    </span>
+                            </div>
+                            <div class="table">
+                                    <!-- <h4 class="card-caption m-0">Room No: 2</h4> -->
+                                    <div class="ftr" style="border-top: none;">
+                                        <!-- <a><i class="fas fa-arrow-alt-circle-right"></i></a> -->
+                                        <button type="button" class="btn p-0" data-toggle="modal" [attr.data-target]="'#viewStudent'+ student.personNo">
+                                            <i class="fas fa-arrow-alt-circle-right"></i>
+                                        </button>
+                                    </div>
+                            </div>
+                            </div>
+                        </div>
+                        <div *ngIf="!this.brfiveRoomsMaleStudents.length" class="alert alert-info mx-2" role="alert" style="width: 400px;">
+                            {{msg}}
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <hr style="color: white;width: 50%;margin-left:25% !important; margin-right:25% !important;" />
+                    <h2 class="text-center" style="color: white;">Room 6</h2>
+                    <hr style="color: white;width: 50%;margin-left:25% !important; margin-right:25% !important;" />
+                    <div class="row mx-5"> 
+                        <div *ngFor="let student of brsixRoomsMaleStudents" class="col-md-2">
+                            <div class="card card-profile">
+                            <div class="card-avatar">
+                                    <span class="fa-stack">
+                                        <strong class="fa-stack-2x">
+                                        {{student.roomNo}}
+                                        </strong>
+                                    </span>
+                            </div>
+                            <div class="table">
+                                    <!-- <h4 class="card-caption m-0">Room No: 2</h4> -->
+                                    <div class="ftr" style="border-top: none;">
+                                        <!-- <a><i class="fas fa-arrow-alt-circle-right"></i></a> -->
+                                        <button type="button" class="btn p-0" data-toggle="modal" [attr.data-target]="'#viewStudent'+ student.personNo">
+                                            <i class="fas fa-arrow-alt-circle-right"></i>
+                                        </button>
+                                    </div>
+                            </div>
+                            </div>
+                        </div>
+                        <div *ngIf="!this.brsixRoomsMaleStudents.length" class="alert alert-info mx-2" role="alert" style="width: 400px;">
+                            {{msg}}
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <hr style="color: white;width: 50%;margin-left:25% !important; margin-right:25% !important;" />
+                    <h2 class="text-center" style="color: white;">Room 7</h2>
+                    <hr style="color: white;width: 50%;margin-left:25% !important; margin-right:25% !important;" />
+                    <div class="row mx-5"> 
+                        <div *ngFor="let student of brsevenRoomsMaleStudents" class="col-md-2">
+                            <div class="card card-profile">
+                            <div class="card-avatar">
+                                    <span class="fa-stack">
+                                        <strong class="fa-stack-2x">
+                                        {{student.roomNo}}
+                                        </strong>
+                                    </span>
+                            </div>
+                            <div class="table">
+                                    <!-- <h4 class="card-caption m-0">Room No: 2</h4> -->
+                                    <div class="ftr" style="border-top: none;">
+                                        <!-- <a><i class="fas fa-arrow-alt-circle-right"></i></a> -->
+                                        <button type="button" class="btn p-0" data-toggle="modal" [attr.data-target]="'#viewStudent'+ student.personNo">
+                                            <i class="fas fa-arrow-alt-circle-right"></i>
+                                        </button>
+                                    </div>
+                            </div>
+                            </div>
+                        </div>
+                        <div *ngIf="!this.brsevenRoomsMaleStudents.length" class="alert alert-info mx-2" role="alert" style="width: 400px;">
+                            {{msg}}
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <hr style="color: white;width: 50%;margin-left:25% !important; margin-right:25% !important;" />
+                    <h2 class="text-center" style="color: white;">Room 8</h2>
+                    <hr style="color: white;width: 50%;margin-left:25% !important; margin-right:25% !important;" />
+                    <div class="row mx-5"> 
+                        <div *ngFor="let student of breightRoomsMaleStudents" class="col-md-2">
+                            <div class="card card-profile">
+                            <div class="card-avatar">
+                                    <span class="fa-stack">
+                                        <strong class="fa-stack-2x">
+                                        {{student.roomNo}}
+                                        </strong>
+                                    </span>
+                            </div>
+                            <div class="table">
+                                    <!-- <h4 class="card-caption m-0">Room No: 2</h4> -->
+                                    <div class="ftr" style="border-top: none;">
+                                        <!-- <a><i class="fas fa-arrow-alt-circle-right"></i></a> -->
+                                        <button type="button" class="btn p-0" data-toggle="modal" [attr.data-target]="'#viewStudent'+ student.personNo">
+                                            <i class="fas fa-arrow-alt-circle-right"></i>
+                                        </button>
+                                    </div>
+                            </div>
+                            </div>
+                        </div>
+                        <div *ngIf="!this.breightRoomsMaleStudents.length" class="alert alert-info mx-2" role="alert" style="width: 400px;">
+                            {{msg}}
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <hr style="color: white;width: 50%;margin-left:25% !important; margin-right:25% !important;" />
+                    <h2 class="text-center" style="color: white;">Room 9</h2>
+                    <hr style="color: white;width: 50%;margin-left:25% !important; margin-right:25% !important;" />
+                    <div class="row mx-5"> 
+                        <div *ngFor="let student of brnineRoomsMaleStudents" class="col-md-2">
+                            <div class="card card-profile">
+                            <div class="card-avatar">
+                                    <span class="fa-stack">
+                                        <strong class="fa-stack-2x">
+                                        {{student.roomNo}}
+                                        </strong>
+                                    </span>
+                            </div>
+                            <div class="table">
+                                    <!-- <h4 class="card-caption m-0">Room No: 2</h4> -->
+                                    <div class="ftr" style="border-top: none;">
+                                        <!-- <a><i class="fas fa-arrow-alt-circle-right"></i></a> -->
+                                        <button type="button" class="btn p-0" data-toggle="modal" [attr.data-target]="'#viewStudent'+ student.personNo">
+                                            <i class="fas fa-arrow-alt-circle-right"></i>
+                                        </button>
+                                    </div>
+                            </div>
+                            </div>
+                        </div>
+                        <div *ngIf="!this.brnineRoomsMaleStudents.length" class="alert alert-info mx-2" role="alert" style="width: 400px;">
+                            {{msg}}
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <hr style="color: white;width: 50%;margin-left:25% !important; margin-right:25% !important;" />
+                    <h2 class="text-center" style="color: white;">Room 10</h2>
+                    <hr style="color: white;width: 50%;margin-left:25% !important; margin-right:25% !important;" />
+                    <div class="row mx-5"> 
+                        <div *ngFor="let student of brtenRoomsMaleStudents" class="col-md-2">
+                            <div class="card card-profile">
+                            <div class="card-avatar">
+                                    <span class="fa-stack">
+                                        <strong class="fa-stack-2x">
+                                        {{student.roomNo}}
+                                        </strong>
+                                    </span>
+                            </div>
+                            <div class="table">
+                                    <!-- <h4 class="card-caption m-0">Room No: 2</h4> -->
+                                    <div class="ftr" style="border-top: none;">
+                                        <!-- <a><i class="fas fa-arrow-alt-circle-right"></i></a> -->
+                                        <button type="button" class="btn p-0" data-toggle="modal" [attr.data-target]="'#viewStudent'+ student.personNo">
+                                            <i class="fas fa-arrow-alt-circle-right"></i>
+                                        </button>
+                                    </div>
+                            </div>
+                            </div>
+                        </div>
+                        <div *ngIf="!this.brtenRoomsMaleStudents.length" class="alert alert-info mx-2" role="alert" style="width: 400px;">
+                            {{msg}}
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    </div>
+
+                        
+
+
+                    <div class="col-lg-12 p-0 mt-5">
+                        <div class="div-box">
+                            <h3 class="room-title"><strong>Girls Rooms</strong></h3>
+                        </div>
+                    </div>
+                    
+                    <hr style="color: white;width: 50%;margin-left:25% !important; margin-right:25% !important;" />
+                    <h2 class="text-center" style="color: white;">Room 1</h2>
+                    <hr style="color: white;width: 50%;margin-left:25% !important; margin-right:25% !important;" />
+                    <div class="row mx-5">
+                        <div *ngFor="let student of groneRoomsFemaleStudents" class="col-md-2">
+                            <div class="card card-profile">
+                            <div class="card-avatar">
+                                    <span class="fa-stack">
+                                        <strong class="fa-stack-2x">
+                                        {{student.roomNo}}
+                                        </strong>
+                                    </span>
+                            </div>
+                            <div class="table">
+                                    <!-- <h4 class="card-caption m-0">Room No: 2</h4> -->
+                                    <div class="ftr" style="border-top: none;">
+                                        <!-- <a><i class="fas fa-arrow-alt-circle-right"></i></a> -->
+                                        <button type="button" class="btn p-0" data-toggle="modal" [attr.data-target]="'#viewStudent'+ student.personNo">
+                                            <i class="fas fa-arrow-alt-circle-right"></i>
+                                        </button>
+                                    </div>
+                            </div>
+                            </div>
+                        </div>
+                        <div *ngIf="!this.groneRoomsFemaleStudents.length" class="alert alert-info mx-2" role="alert" style="width: 400px;">
+                            {{msg}}
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    </div>
+                        
+                    <hr style="color: white;width: 50%;margin-left:25% !important; margin-right:25% !important;" />
+                    <h2 class="text-center" style="color: white;">Room 2</h2>
+                    <hr style="color: white;width: 50%;margin-left:25% !important; margin-right:25% !important;" />
+                    <div class="row mx-5">
+                        <div *ngFor="let student of grtwoRoomsFemaleStudents" class="col-md-2">
+                            <div class="card card-profile">
+                            <div class="card-avatar">
+                                    <span class="fa-stack">
+                                        <strong class="fa-stack-2x">
+                                        {{student.roomNo}}
+                                        </strong>
+                                    </span>
+                            </div>
+                            <div class="table">
+                                    <!-- <h4 class="card-caption m-0">Room No: 2</h4> -->
+                                    <div class="ftr" style="border-top: none;">
+                                        <!-- <a><i class="fas fa-arrow-alt-circle-right"></i></a> -->
+                                        <button type="button" class="btn p-0" data-toggle="modal" [attr.data-target]="'#viewStudent'+ student.personNo">
+                                            <i class="fas fa-arrow-alt-circle-right"></i>
+                                        </button>
+                                    </div>
+                            </div>
+                            </div>
+                        </div>
+                        <div *ngIf="!this.grtwoRoomsFemaleStudents.length" class="alert alert-info mx-2" role="alert" style="width: 400px;">
+                            {{msg}}
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <hr style="color: white;width: 50%;margin-left:25% !important; margin-right:25% !important;" />
+                    <h2 class="text-center" style="color: white;">Room 3</h2>
+                    <hr style="color: white;width: 50%;margin-left:25% !important; margin-right:25% !important;" />
+                    <div class="row mx-5">
+                        <div *ngFor="let student of grtreeRoomsFemaleStudents" class="col-md-2">
+                            <div class="card card-profile">
+                            <div class="card-avatar">
+                                    <span class="fa-stack">
+                                        <strong class="fa-stack-2x">
+                                        {{student.roomNo}}
+                                        </strong>
+                                    </span>
+                            </div>
+                            <div class="table">
+                                    <!-- <h4 class="card-caption m-0">Room No: 2</h4> -->
+                                    <div class="ftr" style="border-top: none;">
+                                        <!-- <a><i class="fas fa-arrow-alt-circle-right"></i></a> -->
+                                        <button type="button" class="btn p-0" data-toggle="modal" [attr.data-target]="'#viewStudent'+ student.personNo">
+                                            <i class="fas fa-arrow-alt-circle-right"></i>
+                                        </button>
+                                    </div>
+                            </div>
+                            </div>
+                        </div>
+                        <div *ngIf="!this.grtreeRoomsFemaleStudents.length" class="alert alert-info mx-2" role="alert" style="width: 400px;">
+                            {{msg}}
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <hr style="color: white;width: 50%;margin-left:25% !important; margin-right:25% !important;" />
+                    <h2 class="text-center" style="color: white;">Room 4</h2>
+                    <hr style="color: white;width: 50%;margin-left:25% !important; margin-right:25% !important;" />
+                    <div class="row mx-5">
+                        <div *ngFor="let student of grfourRoomsFemaleStudents" class="col-md-2">
+                            <div class="card card-profile">
+                            <div class="card-avatar">
+                                    <span class="fa-stack">
+                                        <strong class="fa-stack-2x">
+                                        {{student.roomNo}}
+                                        </strong>
+                                    </span>
+                            </div>
+                            <div class="table">
+                                    <!-- <h4 class="card-caption m-0">Room No: 2</h4> -->
+                                    <div class="ftr" style="border-top: none;">
+                                        <!-- <a><i class="fas fa-arrow-alt-circle-right"></i></a> -->
+                                        <button type="button" class="btn p-0" data-toggle="modal" [attr.data-target]="'#viewStudent'+ student.personNo">
+                                            <i class="fas fa-arrow-alt-circle-right"></i>
+                                        </button>
+                                    </div>
+                            </div>
+                            </div>
+                        </div>
+                        <div *ngIf="!this.grfourRoomsFemaleStudents.length" class="alert alert-info mx-2" role="alert" style="width: 400px;">
+                            {{msg}}
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <hr style="color: white;width: 50%;margin-left:25% !important; margin-right:25% !important;" />
+                    <h2 class="text-center" style="color: white;">Room 5</h2>
+                    <hr style="color: white;width: 50%;margin-left:25% !important; margin-right:25% !important;" />
+                    <div class="row mx-5">
+                        <div *ngFor="let student of grfiveRoomsFemaleStudents" class="col-md-2">
+                            <div class="card card-profile">
+                            <div class="card-avatar">
+                                    <span class="fa-stack">
+                                        <strong class="fa-stack-2x">
+                                        {{student.roomNo}}
+                                        </strong>
+                                    </span>
+                            </div>
+                            <div class="table">
+                                    <!-- <h4 class="card-caption m-0">Room No: 2</h4> -->
+                                    <div class="ftr" style="border-top: none;">
+                                        <!-- <a><i class="fas fa-arrow-alt-circle-right"></i></a> -->
+                                        <button type="button" class="btn p-0" data-toggle="modal" [attr.data-target]="'#viewStudent'+ student.personNo">
+                                            <i class="fas fa-arrow-alt-circle-right"></i>
+                                        </button>
+                                    </div>
+                            </div>
+                            </div>
+                        </div>
+                        <div *ngIf="!this.grfiveRoomsFemaleStudents.length" class="alert alert-info mx-2" role="alert" style="width: 400px;">
+                            {{msg}}
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <hr style="color: white;width: 50%;margin-left:25% !important; margin-right:25% !important;" />
+                    <h2 class="text-center" style="color: white;">Room 6</h2>
+                    <hr style="color: white;width: 50%;margin-left:25% !important; margin-right:25% !important;" />
+                    <div class="row mx-5">
+                        <div *ngFor="let student of grsixRoomsFemaleStudents" class="col-md-2">
+                            <div class="card card-profile">
+                            <div class="card-avatar">
+                                    <span class="fa-stack">
+                                        <strong class="fa-stack-2x">
+                                        {{student.roomNo}}
+                                        </strong>
+                                    </span>
+                            </div>
+                            <div class="table">
+                                    <!-- <h4 class="card-caption m-0">Room No: 2</h4> -->
+                                    <div class="ftr" style="border-top: none;">
+                                        <!-- <a><i class="fas fa-arrow-alt-circle-right"></i></a> -->
+                                        <button type="button" class="btn p-0" data-toggle="modal" [attr.data-target]="'#viewStudent'+ student.personNo">
+                                            <i class="fas fa-arrow-alt-circle-right"></i>
+                                        </button>
+                                    </div>
+                            </div>
+                            </div>
+                        </div>
+                        <div *ngIf="!this.grsixRoomsFemaleStudents.length" class="alert alert-info mx-2" role="alert" style="width: 400px;">
+                            {{msg}}
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <hr style="color: white;width: 50%;margin-left:25% !important; margin-right:25% !important;" />
+                    <h2 class="text-center" style="color: white;">Room 7</h2>
+                    <hr style="color: white;width: 50%;margin-left:25% !important; margin-right:25% !important;" />
+                    <div class="row mx-5">
+                        <div *ngFor="let student of grsevenRoomsFemaleStudents" class="col-md-2">
+                            <div class="card card-profile">
+                            <div class="card-avatar">
+                                    <span class="fa-stack">
+                                        <strong class="fa-stack-2x">
+                                        {{student.roomNo}}
+                                        </strong>
+                                    </span>
+                            </div>
+                            <div class="table">
+                                    <!-- <h4 class="card-caption m-0">Room No: 2</h4> -->
+                                    <div class="ftr" style="border-top: none;">
+                                        <!-- <a><i class="fas fa-arrow-alt-circle-right"></i></a> -->
+                                        <button type="button" class="btn p-0" data-toggle="modal" [attr.data-target]="'#viewStudent'+ student.personNo">
+                                            <i class="fas fa-arrow-alt-circle-right"></i>
+                                        </button>
+                                    </div>
+                            </div>
+                            </div>
+                        </div>
+                        <div *ngIf="!this.grsevenRoomsFemaleStudents.length" class="alert alert-info mx-2" role="alert" style="width: 400px;">
+                            {{msg}}
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <hr style="color: white;width: 50%;margin-left:25% !important; margin-right:25% !important;" />
+                    <h2 class="text-center" style="color: white;">Room 8 (Dorm master's quarter)</h2>
+                    <hr style="color: white;width: 50%;margin-left:25% !important; margin-right:25% !important;" />
+                    <div class="row mx-5">
+                        <div *ngFor="let student of greightRoomsFemaleStudents" class="col-md-2">
+                            <div class="card card-profile">
+                            <div class="card-avatar">
+                                    <span class="fa-stack">
+                                        <strong class="fa-stack-2x">
+                                        {{student.roomNo}}
+                                        </strong>
+                                    </span>
+                            </div>
+                            <div class="table">
+                                    <!-- <h4 class="card-caption m-0">Room No: 2</h4> -->
+                                    <div class="ftr" style="border-top: none;">
+                                        <!-- <a><i class="fas fa-arrow-alt-circle-right"></i></a> -->
+                                        <button type="button" class="btn p-0" data-toggle="modal" [attr.data-target]="'#viewStudent'+ student.personNo">
+                                            <i class="fas fa-arrow-alt-circle-right"></i>
+                                        </button>
+                                    </div>
+                            </div>
+                            </div>
+                        </div>
+                        <div *ngIf="!this.greightRoomsFemaleStudents.length" class="alert alert-info mx-2" role="alert" style="width: 400px;">
+                            {{msg}}
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <hr style="color: white;width: 50%;margin-left:25% !important; margin-right:25% !important;" />
+                    <h2 class="text-center" style="color: white;">Room 9</h2>
+                    <hr style="color: white;width: 50%;margin-left:25% !important; margin-right:25% !important;" />
+                    <div class="row mx-5">
+                        <div *ngFor="let student of grnineRoomsFemaleStudents" class="col-md-2">
+                            <div class="card card-profile">
+                            <div class="card-avatar">
+                                    <span class="fa-stack">
+                                        <strong class="fa-stack-2x">
+                                        {{student.roomNo}}
+                                        </strong>
+                                    </span>
+                            </div>
+                            <div class="table">
+                                    <!-- <h4 class="card-caption m-0">Room No: 2</h4> -->
+                                    <div class="ftr" style="border-top: none;">
+                                        <!-- <a><i class="fas fa-arrow-alt-circle-right"></i></a> -->
+                                        <button type="button" class="btn p-0" data-toggle="modal" [attr.data-target]="'#viewStudent'+ student.personNo">
+                                            <i class="fas fa-arrow-alt-circle-right"></i>
+                                        </button>
+                                    </div>
+                            </div>
+                            </div>
+                        </div>
+                        <div *ngIf="!this.grnineRoomsFemaleStudents.length" class="alert alert-info mx-2" role="alert" style="width: 400px;">
+                            {{msg}}
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <hr style="color: white;width: 50%;margin-left:25% !important; margin-right:25% !important;" />
+                    <h2 class="text-center" style="color: white;">Room 10</h2>
+                    <hr style="color: white;width: 50%;margin-left:25% !important; margin-right:25% !important;" />
+                    <div class="row mx-5">
+                        <div *ngFor="let student of grtenRoomsFemaleStudents" class="col-md-2">
+                            <div class="card card-profile">
+                            <div class="card-avatar">
+                                    <span class="fa-stack">
+                                        <strong class="fa-stack-2x">
+                                        {{student.roomNo}}
+                                        </strong>
+                                    </span>
+                            </div>
+                            <div class="table">
+                                    <!-- <h4 class="card-caption m-0">Room No: 2</h4> -->
+                                    <div class="ftr" style="border-top: none;">
+                                        <!-- <a><i class="fas fa-arrow-alt-circle-right"></i></a> -->
+                                        <button type="button" class="btn p-0" data-toggle="modal" [attr.data-target]="'#viewStudent'+ student.personNo">
+                                            <i class="fas fa-arrow-alt-circle-right"></i>
+                                        </button>
+                                    </div>
+                            </div>
+                            </div>
+                        </div>
+                        <div *ngIf="!this.grtenRoomsFemaleStudents.length" class="alert alert-info mx-2" role="alert" style="width: 400px;">
+                            {{msg}}
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <hr style="color: white;width: 50%;margin-left:25% !important; margin-right:25% !important;" />
+                    <h2 class="text-center" style="color: white;">Room 11</h2>
+                    <hr style="color: white;width: 50%;margin-left:25% !important; margin-right:25% !important;" />
+                    <div class="row mx-5">
+                        <div *ngFor="let student of grelevenRoomsFemaleStudents" class="col-md-2">
+                            <div class="card card-profile">
+                            <div class="card-avatar">
+                                    <span class="fa-stack">
+                                        <strong class="fa-stack-2x">
+                                        {{student.roomNo}}
+                                        </strong>
+                                    </span>
+                            </div>
+                            <div class="table">
+                                    <!-- <h4 class="card-caption m-0">Room No: 2</h4> -->
+                                    <div class="ftr" style="border-top: none;">
+                                        <!-- <a><i class="fas fa-arrow-alt-circle-right"></i></a> -->
+                                        <button type="button" class="btn p-0" data-toggle="modal" [attr.data-target]="'#viewStudent'+ student.personNo">
+                                            <i class="fas fa-arrow-alt-circle-right"></i>
+                                        </button>
+                                    </div>
+                            </div>
+                            </div>
+                        </div>
+                        <div *ngIf="!this.grelevenRoomsFemaleStudents.length" class="alert alert-info mx-2" role="alert" style="width: 400px;">
+                            {{msg}}
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <hr style="color: white;width: 50%;margin-left:25% !important; margin-right:25% !important;" />
+                    <h2 class="text-center" style="color: white;">Room 12</h2>
+                    <hr style="color: white;width: 50%;margin-left:25% !important; margin-right:25% !important;" />
+                    <div class="row mx-5">
+                        <div *ngFor="let student of grtwelveRoomsFemaleStudents" class="col-md-2">
+                            <div class="card card-profile">
+                            <div class="card-avatar">
+                                    <span class="fa-stack">
+                                        <strong class="fa-stack-2x">
+                                        {{student.roomNo}}
+                                        </strong>
+                                    </span>
+                            </div>
+                            <div class="table">
+                                    <!-- <h4 class="card-caption m-0">Room No: 2</h4> -->
+                                    <div class="ftr" style="border-top: none;">
+                                        <!-- <a><i class="fas fa-arrow-alt-circle-right"></i></a> -->
+                                        <button type="button" class="btn p-0" data-toggle="modal" [attr.data-target]="'#viewStudent'+ student.personNo">
+                                            <i class="fas fa-arrow-alt-circle-right"></i>
+                                        </button>
+                                    </div>
+                            </div>
+                            </div>
+                        </div>
+                        <div *ngIf="!this.grtwelveRoomsFemaleStudents.length" class="alert alert-info mx-2" role="alert" style="width: 400px;">
+                            {{msg}}
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <hr style="color: white;width: 50%;margin-left:25% !important; margin-right:25% !important;" />
+                    <h2 class="text-center" style="color: white;">Room 13</h2>
+                    <hr style="color: white;width: 50%;margin-left:25% !important; margin-right:25% !important;" />
+                    <div class="row mx-5">
+                        <div *ngFor="let student of grthirteenRoomsFemaleStudents" class="col-md-2">
+                            <div class="card card-profile">
+                            <div class="card-avatar">
+                                    <span class="fa-stack">
+                                        <strong class="fa-stack-2x">
+                                        {{student.roomNo}}
+                                        </strong>
+                                    </span>
+                            </div>
+                            <div class="table">
+                                    <!-- <h4 class="card-caption m-0">Room No: 2</h4> -->
+                                    <div class="ftr" style="border-top: none;">
+                                        <!-- <a><i class="fas fa-arrow-alt-circle-right"></i></a> -->
+                                        <button type="button" class="btn p-0" data-toggle="modal" [attr.data-target]="'#viewStudent'+ student.personNo">
+                                            <i class="fas fa-arrow-alt-circle-right"></i>
+                                        </button>
+                                    </div>
+                            </div>
+                            </div>
+                        </div>
+                        <div *ngIf="!this.grthirteenRoomsFemaleStudents.length" class="alert alert-info mx-2" role="alert" style="width: 400px;">
+                            {{msg}}
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <hr style="color: white;width: 50%;margin-left:25% !important; margin-right:25% !important;" />
+                    <h2 class="text-center" style="color: white;">Room 14</h2>
+                    <hr style="color: white;width: 50%;margin-left:25% !important; margin-right:25% !important;" />
+                    <div class="row mx-5">
+                        <div *ngFor="let student of grfourteenRoomsFemaleStudents" class="col-md-2">
+                            <div class="card card-profile">
+                            <div class="card-avatar">
+                                    <span class="fa-stack">
+                                        <strong class="fa-stack-2x">
+                                        {{student.roomNo}}
+                                        </strong>
+                                    </span>
+                            </div>
+                            <div class="table">
+                                    <!-- <h4 class="card-caption m-0">Room No: 2</h4> -->
+                                    <div class="ftr" style="border-top: none;">
+                                        <!-- <a><i class="fas fa-arrow-alt-circle-right"></i></a> -->
+                                        <button type="button" class="btn p-0" data-toggle="modal" [attr.data-target]="'#viewStudent'+ student.personNo">
+                                            <i class="fas fa-arrow-alt-circle-right"></i>
+                                        </button>
+                                    </div>
+                            </div>
+                            </div>
+                        </div>
+                        <div *ngIf="!this.grfourteenRoomsFemaleStudents.length" class="alert alert-info mx-2" role="alert" style="width: 400px;">
+                            {{msg}}
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <hr style="color: white;width: 50%;margin-left:25% !important; margin-right:25% !important;" />
+                    <h2 class="text-center" style="color: white;">Room 15</h2>
+                    <hr style="color: white;width: 50%;margin-left:25% !important; margin-right:25% !important;" />
+                    <div class="row mx-5">
+                        <div *ngFor="let student of grfifteenRoomsFemaleStudents" class="col-md-2">
+                            <div class="card card-profile">
+                            <div class="card-avatar">
+                                    <span class="fa-stack">
+                                        <strong class="fa-stack-2x">
+                                        {{student.roomNo}}
+                                        </strong>
+                                    </span>
+                            </div>
+                            <div class="table">
+                                    <!-- <h4 class="card-caption m-0">Room No: 2</h4> -->
+                                    <div class="ftr" style="border-top: none;">
+                                        <!-- <a><i class="fas fa-arrow-alt-circle-right"></i></a> -->
+                                        <button type="button" class="btn p-0" data-toggle="modal" [attr.data-target]="'#viewStudent'+ student.personNo">
+                                            <i class="fas fa-arrow-alt-circle-right"></i>
+                                        </button>
+                                    </div>
+                            </div>
+                            </div>
+                        </div>
+                        <div *ngIf="!this.grfifteenRoomsFemaleStudents.length" class="alert alert-info mx-2" role="alert" style="width: 400px;">
+                            {{msg}}
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    
+                </span>
+
+            </div>
+        
+    </main>
+</div>
+
+
+<!-- Modal -->
+<span *ngFor="let student of students">
+    <div class="modal fade" id="viewStudent{{student.personNo}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header" style="background-color: #d2cece94;">
+            <h1 class="modal-title m-0" id="exampleModalLongTitle" style="font-family: serif;">Room No: {{student.roomNo}}</h1>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            </div>
+            <div class="modal-body" style="background-color: #152733 !important;">
+                <div class="form-body">
+                    <div class="row">
+                        <div class="form-holder">
+                            <div class="form-content" style="padding: 0;">
+                                <div class="form-items" style="padding: 10px 17px;">
+                                    <form class="requires-validation" novalidate>
+
+                                        <div class="row mx-1">
+                                            <div class="col-md-6">
+                                                <input class="form-control" type="text" name="gender" value="{{student.gender}}" disabled>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-12">
+                                            <label for="studentDetails" style="margin-top:16px;margin-bottom:0px"><span>Student Details :</span></label>
+                                        </div>
+                                        
+                                        <div class="row mx-1">
+                                            <div class="col-md-6">
+                                                <input class="form-control" type="text" name="surName" value="{{student.surName}}" disabled>
+                                            </div>
+                                            <div class="col-md-6">
+                                            <input class="form-control" type="text" name="firstName" value="{{student.firstName}}" disabled>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <input class="form-control" type="text" name="middleName" value="{{student.middleName}}" disabled>
+                                            </div>
+                                        </div>
+
+                                        <div class="row mx-1">
+                                            <div class="col-md-6">
+                                                <input class="form-control" type="number" name="mobileNo" value="{{student.mobileNo}}" disabled>
+                                            </div>
+                                        </div>
+        
+                                        <div class="col-md-12">
+                                            <input class="form-control" type="email" name="email" value="{{student.email}}" disabled>
+                                        </div>
+
+                                    
+                                        
+
+                                        
+                                        
+                                        <div class="col-md-12">
+                                            <label for="addressDetails" style="margin-top:16px;margin-bottom:0px"><span>Address Details :</span></label>
+                                        </div>
+
+                                        <div class="col-md-12">
+                                            <textarea class="form-control" rows="2" cols="50" name="currentAdress" disabled> {{student.currentAdress}} </textarea>
+                                        </div>
+        
+                                        <div class="col-md-12">
+                                            <label for="collegeDetails" style="margin-top:16px;margin-bottom:0px"><span>College Details :</span></label>
+                                        </div>
+
+                                        <div class="col-md-12">
+                                            <input class="form-control" type="text" name="collegeName" value="{{student.collegeName}}" disabled>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        </div>
+    </div>
+</span>

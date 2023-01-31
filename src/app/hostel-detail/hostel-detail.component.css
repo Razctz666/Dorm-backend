@@ -1,0 +1,16 @@
+.card:hover {
+    box-shadow: -8px 8px 12px 0 rgb(0 0 0 / 58%);;
+}
+
+.mx-5 {
+    margin-right: 5rem!important;
+    margin-left: 5rem!important;
+    background-color: rgb(#EE696B, #523A78);
+}
+
+
+
+.po{
+    
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}

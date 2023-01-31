@@ -1,0 +1,180 @@
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+
+<div class="row" style="width: 100.81%;">
+    <aside class="col-lg-3" style="width: 335px;"> 
+        <admin-hostel-sidebar></admin-hostel-sidebar>
+    </aside>
+    <main class="col-lg-9">
+        <button id="print" class="c0174 c0189 c0179 c0188 c0163" data-element-focusable="true" title="Print (Ctrl+P)">
+            <span class="c0180">
+              <div class="c0168">
+                <div class="c0169">
+                  <svg width="20" height="20" viewBox="0 0 20 20" class="">
+                    <path d="M5 4.5C5 3.67 5.67 3 6.5 3h7c.83 0 1.5.67 1.5 1.5V5h.5A2.5 2.5 0 0118 7.5v5c0 .83-.67 1.5-1.5 1.5H15v1.5c0 .83-.67 1.5-1.5 1.5h-7A1.5 1.5 0 015 15.5V14H3.5A1.5 1.5 0 012 12.5v-5A2.5 2.5 0 014.5 5H5v-.5zM6 5h8v-.5a.5.5 0 00-.5-.5h-7a.5.5 0 00-.5.5V5zm-1 8v-1.5c0-.83.67-1.5 1.5-1.5h7c.83 0 1.5.67 1.5 1.5V13h1.5a.5.5 0 00.5-.5v-5c0-.83-.67-1.5-1.5-1.5h-11C3.67 6 3 6.67 3 7.5v5c0 .28.22.5.5.5H5zm1.5-2a.5.5 0 00-.5.5v4c0 .28.22.5.5.5h7a.5.5 0 00.5-.5v-4a.5.5 0 00-.5-.5h-7z" fill-rule="nonzero">
+                    </path>
+                  </svg>
+                </div>
+              </div>
+           </span>
+        </button>
+        <div class="row py-5">
+          
+            <div class="col-lg-30 mx-auto">
+              <div class="card rounded shadow border-0">
+                <div class="card-body p-0 bg-white rounded">
+                  <div class="table-responsive" style="padding: 20px;">
+                    <table *ngIf="queries.length" id="example" style="width:100%;margin-bottom: 0;background-color: #d8c9c4 !important;" class="table table-striped table-bordered">
+                      <thead>
+                        <tr>
+                          <th>No</th>
+                          <th>Username</th>
+                          <th>Surname</th>
+                          <th>First Name</th>
+                          <th>Middle Name</th>
+                          <th>Id Number</th>
+                          <th>Course & Year</th>
+                          <th>Citizenship</th>
+                          <th>Address</th>
+                          <th>Age</th>
+                          <th>Gender</th>
+                          <th>Birthday</th>
+                          <th>Religion</th>
+                          <th>Email Address</th>
+                          <th>Contact No.</th>
+                          <th>Scholarship</th>
+                          <th>Elementary</th>
+                          <th>Secondary</th>
+                          <th>College</th>
+                          <th>Fathers Name</th>
+                          <th>Occupation</th>
+                          <th>Mothers Name</th>
+                          <th>Occupation</th>
+                          <th>Fathers Monthly Income</th>
+                          <th>Mothers Monthly Income</th>
+                          <th>In case of emergency</th>
+                          <th>Relationship</th>
+                          <th>Contact No.</th>
+                          <th>datetime</th>
+                          <th>Action</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+          
+                        <tr *ngFor="let query of queries;let i = index">
+                          
+                            <td>{{i + 1}}</td>
+                            <td>{{query.username}}</td>
+                            <td>{{query.surname}}</td>
+                            <td>{{query.firstname}}</td>
+                            <td>{{query.middlename}}</td>
+                            <td>{{query.idnumber}}</td>
+                            <td>{{query.course}}</td>
+                            <td>{{query.citizenship}}</td>
+                            <td>{{query.address}}</td>
+                            <td>{{query.age}}</td>
+                            <td>{{query.gender}}</td>
+                            <td>{{query.birthday}}</td>
+                            <td>{{query.religion}}</td>
+                            <td>{{query.email}}</td>
+                            <td>{{query.contact}}</td>
+                            <td>{{query.scholar}}</td>
+                            <td>{{query.elementary}}</td>
+                            <td>{{query.secondary}}</td>
+                            <td>{{query.college}}</td>
+                            <td>{{query.fathersname}}</td>
+                            <td>{{query.mothersname}}</td>
+                            <td>{{query.occupation}}</td>
+                            <td>{{query.occupation}}</td>
+                            <td>{{query.occupation}}</td>
+                            <td>{{query.monthly}}</td>
+                            <td>{{query.person}}</td>
+                            <td>{{query.relationship}}</td>
+                            <td>{{query.contacts}}</td>
+                            <td>{{query.insertedAt  | date: 'dd MMM yyyy hh:mm a' }}</td>
+                            <td>
+                              <!-- For Reply (Button trigger modal) -->
+                              <button type="button" (click)="setValue(query)" class="btn btn-primary mx-auto" data-toggle="modal" [attr.data-target]="'#reply'+ query._id">
+                                <i class="fas fa-reply"></i>
+                              </button>
+
+                              <button type="button" (click)="setCustomReplyMsgList(query._id)" class="btn btn-info float-end mx-auto" data-toggle="modal" [attr.data-target]="'#showAllreply'">
+                                <i class="fas fa-history"></i>
+                              </button>
+                            </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+
+    </main>
+</div>
+
+<span *ngFor="let query of queries">
+  <!-- Send Reply Modal -->
+  <div class="modal fade" id="reply{{query._id}}" tabindex="-1" role="dialog" aria-labelledby="replyLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header" style="background: cadetblue;">
+          <h1 class="modal-title m-0" id="replyLabel">Reply to {{query.username}}</h1>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form [formGroup]="replyMessageForm">
+            <div class="form-group">
+              <label for="replyMsg" class="col-form-label">Message:</label>
+              <textarea class="form-control" id="replyMsg" name="replyMsg" formControlName="replyMsg" placeholder="Write reply message"></textarea>
+            </div>
+            <button type="button" (click)="sendReplyMessage()" class="btn btn-primary float-end">Send</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</span>
+
+<!-- Reply View Modal -->
+<div class="modal fade bd-example-modal-lg" id="showAllreply" tabindex="-1" role="dialog" aria-labelledby="showAllreplyLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header" style="background: cadetblue;">
+        <h2 class="modal-title m-0" id="showAllreplyLabel">History</h2>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" style="background: darkgray;">
+        <div class="card rounded shadow border-0">
+          <div class="card-body p-0 bg-white rounded">
+            <div class="table-responsive">
+              <table *ngIf="customreplyMsgList.length" id="example" style="width:100%;margin-bottom: 0;" class="table table-striped table-bordered">
+                <thead>
+                  <tr>
+                    <th>No</th>
+                    <th>Reply Messages</th>
+                    <th>datetime</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let replyMsg of customreplyMsgList;let i = index">
+                      <td>{{i + 1}}</td>
+                      <td>{{replyMsg.replyMsg}}</td>
+                      <td>{{replyMsg.repliedAt  | date: 'dd MMM yyyy hh:mm a' }}</td>
+                  </tr>
+                </tbody>
+              </table>
+              <div *ngIf="!customreplyMsgList.length">
+                <h3 class="m-3">No Data Available</h3>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

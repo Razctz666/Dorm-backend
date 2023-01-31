@@ -1,0 +1,24 @@
+img {
+    width: 100%;
+}
+img.img-fluid {
+    height: 249px;
+    width: 249px;
+    object-fit: contain;
+}
+
+.contact2{
+    background-color: rgb(0 0 0 / 60%);
+}
+
+.po{
+    -webkit-text-fill-color: whitesmoke;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 20px;
+}
+
+.po1{
+    -webkit-text-fill-color: black;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+

@@ -1,0 +1,283 @@
+<div class="contact2" id="contact" style= "background: linear-gradient(to bottom, #33ccff 0%, #ff99cc 100%)">
+  <div class="container">
+    <div class="row contact-container">
+      <div class="col-lg-12">
+        <div class="card card-shadow border-0 mb-4">
+          <div class="row" >
+            <div class="col-lg-8">
+              <div class="contact-box p-4" >
+                <div class="row" >
+                  <div class="col-lg-8">
+                    <h4 class="title po">Fill Out Form</h4>
+                  </div>
+                    <div *ngIf="user" class="col-lg-4">
+                      <div class="icon-badge-container mx-1" style="padding-left: 167px;">
+                        <a href="#" data-toggle="modal" [attr.data-target]="'#showAdminreply'"><i class="far fa-envelope icon-badge-icon"></i></a>
+                        <div class="icon-badge po"><b>{{totalReplyMsg}}</b></div>
+                      </div>
+                    </div>
+                </div>
+                <form [formGroup]="contactFormGroup" >
+                  <div class="row" style= "background: linear-gradient(to bottom, #33ccff 0%, #ff99cc 100%)">
+                    <div class="col-lg-12">
+                      <div class="form-group  mt-3">
+                        <b><label class="personal" for="title">Personal Information</label></b>
+                          <textarea class="form-control po" id="surname" name="surname" formControlName="surname" rows="1" required minlength="1" placeholder="Surname"></textarea>
+                      </div>
+                    </div>
+
+                    <div class="col-lg-12">
+                      <div class="form-group  mt-3">
+                          <textarea class="form-control po" id="firstname" name="firstname" formControlName="firstname" rows="1" required minlength="1" placeholder="First name"></textarea>
+                      </div>
+                    </div>
+
+                    <div class="col-lg-12">
+                      <div class="form-group  mt-3">
+                          <textarea class="form-control po" id="middlename" name="middlename" formControlName="middlename" rows="1" required minlength="1" placeholder="Middle name"></textarea>
+                      </div>
+                    </div>
+
+                    <div class="col-lg-12">
+                      <div class="form-group  mt-3">
+                          <textarea class="form-control po" id="idnumber" name="idnumber" formControlName="idnumber" rows="1" required minlength="1" placeholder="Id Number"></textarea>
+                      </div>
+                    </div>
+
+                    <div class="col-lg-12">
+                      <div class="form-group  mt-3">
+                          <textarea class="form-control po" id="course" name="course" formControlName="course" rows="1" required minlength="1" placeholder="Course & Year"></textarea>
+                      </div>
+                    </div>
+
+                    <div class="col-lg-12">
+                      <div class="form-group  mt-3">
+                          <textarea class="form-control" id="citizenship" name="citizenship" formControlName="citizenship" rows="1" required minlength="1" placeholder="Citizenship"></textarea>
+                      </div>
+                    </div>
+
+                    <div class="col-lg-12">
+                      <div class="form-group  mt-3">
+                          <textarea class="form-control po" id="address" name="address" formControlName="address" rows="1" required minlength="1" placeholder="Address"></textarea>
+                      </div>
+                    </div>
+
+                    <div class="col-lg-12">
+                      <div class="form-group  mt-3">
+                          <textarea class="form-control po" id="age" name="age" formControlName="age" rows="1" required minlength="1" placeholder="Age"></textarea>
+                      </div>
+                    </div>
+
+                    <div class="col-lg-12">
+                      <div class="form-group  mt-3">
+                          <textarea class="form-control po" id="gender" name="gender" formControlName="gender" rows="1" required minlength="1" placeholder="Gender"></textarea>
+                      </div>
+                    </div>
+
+                    <div class="col-lg-12">
+                      <div class="form-group  mt-3">
+                          <textarea class="form-control po" id="birthday" name="birthday" formControlName="birthday" rows="1" required minlength="1" placeholder="Birthday"></textarea>
+                      </div>
+                    </div>
+
+                    <div class="col-lg-12">
+                      <div class="form-group  mt-3">
+                          <textarea class="form-control po" id="religion" name="religion" formControlName="religion" rows="1" required minlength="1" placeholder="Religion"></textarea>
+                      </div>
+                    </div>
+
+                    <div class="col-lg-12">
+                      <div class="form-group  mt-3">
+                          <textarea class="form-control po"  id="email" name="email" formControlName="email" rows="1" required minlength="1" placeholder="Email Address"></textarea>
+                      </div>
+                    </div>
+
+                    <div class="col-lg-12">
+                      <div class="form-group  mt-3">
+                          <textarea class="form-control po" id="contact" name="contact" formControlName="contact" rows="1" required minlength="1" placeholder="Contact No."></textarea>
+                      </div>
+                    </div>
+
+                    <div class="col-lg-12">
+                      <div class="form-group  mt-3">
+                          <textarea class="form-control po" id="scholar" name="scholar" formControlName="scholar" rows="1" required minlength="1" placeholder="Scholarship"></textarea>
+                      </div>
+                    </div>
+
+                    
+                    <div class="col-lg-12">
+                      <div class="form-group  mt-3"> 
+                        <b><label class="personal" for="title">Educational Background</label></b>
+                          <textarea class="form-control po" id="elementary" name="elementary" formControlName="elementary" rows="1" required minlength="1" placeholder="Elementary"></textarea>
+                      </div>
+                    </div>
+
+                    <div class="col-lg-12">
+                      <div class="form-group  mt-3">
+                          <textarea class="form-control po" id="secondary" name="secondary" formControlName="secondary" rows="1" required minlength="1" placeholder="Secondary"></textarea>
+                      </div>
+                    </div>
+
+                    <div class="col-lg-12">
+                      <div class="form-group  mt-3">
+                          <textarea class="form-control po" id="college" name="college" formControlName="college" rows="1" required minlength="1" placeholder="College"></textarea>
+                      </div>
+                    </div>
+
+                    <div class="col-lg-12">
+                      <div class="form-group  mt-3"> 
+                        <b><label class="personal" for="title">Family Background</label></b>
+                          <textarea class="form-control po" id="fathersname" name="fathersname" formControlName="fathersname" rows="1" required minlength="1" placeholder="Fathers Name"></textarea>
+                      </div>
+                    </div>
+
+                    <div class="col-lg-12">
+                      <div class="form-group  mt-3"> 
+                          <textarea class="form-control po" id="occupation" name="occupation" formControlName="occupation" rows="1" required minlength="1" placeholder="Occupation"></textarea>
+                      </div>
+                    </div>
+
+                    <div class="col-lg-12">
+                      <div class="form-group  mt-3"> 
+                          <textarea class="form-control po" id="mothersname" name="mothersname" formControlName="mothersname" rows="1" required minlength="1" placeholder="Mothers Name"></textarea>
+                      </div>
+                    </div>
+
+                    <div class="col-lg-12">
+                      <div class="form-group  mt-3"> 
+                          <textarea class="form-control po" id="occupation" name="occupation" formControlName="occupation" rows="1" required minlength="1" placeholder="Occupation"></textarea>
+                      </div>
+                    </div>
+
+                    <div class="col-lg-12">
+                      <div class="form-group  mt-3"> 
+                          <textarea class="form-control po" id="monthly" name="monthly" formControlName="monthly" rows="1" required minlength="1" placeholder="Scholarship"></textarea>
+                      </div>
+                    </div>
+
+                    <div class="col-lg-12">
+                      <div class="form-group  mt-3"> 
+                        <b><label class="personal" for="title">Person to notify in case of emergency</label></b>
+                          <textarea class="form-control po" id="person" name="person" formControlName="person" rows="1" required minlength="1" placeholder="Full Name"></textarea>
+                      </div>
+                    </div>
+
+                    <div class="col-lg-12">
+                      <div class="form-group  mt-3"> 
+                          <textarea class="form-control po" id="relationship" name="relationship" formControlName="relationship" rows="1" required minlength="1" placeholder="Relationship"></textarea>
+                      </div>
+                    </div>
+
+                    <div class="col-lg-12">
+                      <div class="form-group  mt-3"> 
+                          <textarea class="form-control po" id="contacts" name="contacts" formControlName="contacts" rows="1" required minlength="1" placeholder="Contact No."></textarea>
+                      </div>
+                    </div>
+
+                      <div *ngIf="user" class="col-lg-12">
+                        <button type="submit" (click)="contactFormSubmit()" class="btn btn-danger-gradiant mt-3 mb-3 text-white border-0 py-2 px-3 po"><span> SUBMIT NOW <i class="ti-arrow-right"></i></span></button>
+                        <button type="button" (click)="showHistory()" class="btn btn-danger-gradiant mt-3 mb-3 text-white border-0 py-2 px-3 mx-2 po" data-toggle="modal" data-target="#history"><span> HISTORY <i class="ti-arrow-right"></i></span></button>
+                      </div>
+                    
+                      <div *ngIf="!user" class="col-lg-12">
+                        <button type="submit" class="btn btn-danger-gradiant mt-3 text-white border-0 py-2 px-3" disabled><span> SUBMIT NOW <i class="ti-arrow-right"></i></span></button>
+                        
+                        <small class="form-text text-muted po">First login to Contact with Us.</small>
+                      </div>
+                   
+                  </div>
+                </form>
+              </div>
+            </div>
+          <div class="col-lg-4 bg-image" style="background-image:url(../assets/img/contact.jpg)">
+                    <div class="detail-box p-4">
+                      <h5 class="text-black font-weight-dark mb-3 font-size:20px po" >Contact Us For Your Concern and Inquiries:</h5>
+                      <div class="text-black op-7 round-social light m-0" style="font-size:20px;">
+                        <div style="padding: 15px 0px;">
+                         <p class="po">Dorm Manager</p> <span class="po">09123456789</span>
+                          <a href="tel:9825125282" class="text-decoration-none text-black border border-black rounded-circle" target="_blank"> <i class="fas fa-phone-volume"></i></a>
+                        </div>
+                        <div class="round-social light">
+                        <a href="https://www.facebook.com/alfred.pantaleon.5" class="ml-0 text-decoration-none text-black border border-black rounded-circle" target="_blank"><i class="far fa-envelope"></i></a>
+                        <a href="https://www.facebook.com/ispscdormservices" class="text-decoration-none text-black border border-black rounded-circle" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://ispsc.edu.ph/campuses/santa-maria-campus/" class="text-decoration-none text-black border border-black rounded-circle" target="_blank"><i class="fab fa-google-plus-g"></i></a>
+                      </div>
+                      </div>
+                      
+                    </div>
+                  </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Admin Message Modal -->
+<div class="modal fade" id="showAdminreply" tabindex="-1" role="dialog" aria-labelledby="showAdminreply" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header" style="background-color: rgb(187 188 189);">
+        <h3 class="modal-title m-0" id="showAdminreply">Admin Reply</h3>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" id="messagebd">
+        <table *ngIf="replyMsgList.length" class="table-striped table-bordered col-md-12 text-center">
+          <thead style="background-color: rgb(111 202 203);">
+              <tr>
+                  <th>No</th>
+                  <th>Reply Message</th>
+                  <th>datetime</th>
+              </tr>
+          </thead>
+          <tbody>
+            <tr  *ngFor="let replyMsg of replyMsgList;let i = index">
+              <td>{{i + 1}}</td>
+              <td>{{replyMsg.replyMsg}}</td>
+              <td>{{replyMsg.repliedAt  | date: 'dd MMM yyyy hh:mm a' }}</td>              
+            </tr>
+          </tbody>
+        </table>
+        <div *ngIf="!replyMsgList.length">
+          <h3 class="m-3">No Data Available</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- history Modal -->
+<div class="modal fade" id="history" tabindex="-1" role="dialog" aria-labelledby="history" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header" style="background-color: rgb(187 188 189);">
+        <h3 class="modal-title m-0" id="history">Your Sent Query</h3>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" id="bd">
+        <table *ngIf="contactHistory.length" class="table-striped table-bordered col-md-12 text-center">
+          <thead style="background-color: rgb(111 202 203);">
+              <tr>
+                  <th>Title</th>
+                  <th>Message</th>
+                  <th>datetime</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr *ngFor="let contact of contactHistory">
+                <td>{{contact.title}}</td>
+                <td>{{contact.query}}</td>
+                <td>{{contact.insertedAt  | date: 'dd MMM yyyy hh:mm a' }}</td>
+              </tr>                            
+          </tbody>
+        </table>
+        <div *ngIf="!contactHistory.length" class="my-1">you have not contacted us.</div>
+      </div>
+    </div>
+  </div>
+</div>
